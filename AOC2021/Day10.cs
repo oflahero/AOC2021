@@ -12,11 +12,11 @@ namespace AOC2021
         }
         public static void Part1()
         {
-
+            Setup();
         }
         public static void Part2()
         {
-
+            Setup();
         }
     }
 }

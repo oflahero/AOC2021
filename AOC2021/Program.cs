@@ -43,6 +43,9 @@ namespace AOC2021
             Day8.Part1();
             Day8.Part2();
 
+            Day9.Part1();
+            Day9.Part2();
+
             Console.WriteLine("Exiting.");
         }
 

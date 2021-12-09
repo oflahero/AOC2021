@@ -24,7 +24,6 @@ namespace AOC2021
             }
 
             pointOccupancy = new Dictionary<Point, int>();
-            // int[,] pointOccupancy = new int[maxX, maxY]; // Heavyyyyy
         }
 
         public static void Part1()
