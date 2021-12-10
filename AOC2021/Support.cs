@@ -8,9 +8,9 @@ namespace AOC2021
 {
     class Support
     {
-        public static IEnumerable<string> InputAsEnumerable(int dayNum, int? partNum = null)
+        public static IEnumerable<string> InputAsEnumerable(int dayNum, bool isTest = false)
         {
-            return File.ReadAllLines($"./input/day{dayNum}{(partNum != null ? "_"+partNum : "")}.txt");
+            return File.ReadAllLines($"./input/day{dayNum}{(isTest ? "_test" : "")}.txt");
         }
 
         public static IEnumerable<int> AsInts(IEnumerable<string> lines)
