@@ -51,7 +51,6 @@ namespace AOC2021
         public static void Part1()
         {
             Setup();
-            SeafloorPoint p;
             var localMinima = Enumerable.Cast<SeafloorPoint>(SeafloorMatrix).Where(p => p.IsLocalMinimum).ToList();
             var riskFactorSum = localMinima.Sum(m => m.Height + 1);
 

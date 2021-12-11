@@ -55,10 +55,10 @@ namespace AOC2021
                 {
                     if (c.Mark(call))
                     {
-                        Console.WriteLine("Bingo! On "+call);
+                        /*Console.WriteLine("Bingo! On "+call);
                         Console.WriteLine(c);
                         Console.WriteLine($"Unmarked sum: {c.SumUnmarked()}");
-                        Console.WriteLine($"Product: {c.SumUnmarked() * call}");
+                        Console.WriteLine($"Product: {c.SumUnmarked() * call}");*/
                         break;
                     }
                 }
@@ -80,10 +80,10 @@ namespace AOC2021
                 {
                     if (!c.isBingo() && c.Mark(call))
                     {
-                        Console.WriteLine("Bingo! On " + call);
+                        /*Console.WriteLine("Bingo! On " + call);
                         Console.WriteLine(c);
                         Console.WriteLine($"Unmarked sum: {c.SumUnmarked()}");
-                        Console.WriteLine($"Product: {c.SumUnmarked() * call}");
+                        Console.WriteLine($"Product: {c.SumUnmarked() * call}");*/
                         lastToWin = c.SumUnmarked() * call;
                     }
                 }
