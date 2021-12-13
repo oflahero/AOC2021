@@ -68,6 +68,11 @@ namespace AOC2021
             // Exclude columns/rows to the right of/below the fold, and union the flipped point set.
             lps.RemoveWhere(p => foldAxis == axis.X ? p.X >= foldLine : p.Y >= foldLine);
             lps.UnionWith(foldFlipPointSet);
+
+            // Makes no difference really as we're always folding 'smaller' (i.e. to the left, and back up) but this is more
+            // accurate.
+            XDimension = lps.Max(p => p.X) + 1;
+            YDimension = lps.Max(p => p.Y) + 1;
         }
 
         public static void Part2()
