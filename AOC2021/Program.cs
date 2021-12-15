@@ -59,10 +59,10 @@ namespace AOC2021
             Day13.Part2();
 
             Day14.Part1();
-            Day14.Part2();
-
+            Time("D14(2)", Day14.Part2);
+            
             Day15.Part1();
-            Day15.Part2();
+            Time("D15(2)", Day15.Part2);
 
             Day16.Part1();
             Day16.Part2();
@@ -96,7 +96,14 @@ namespace AOC2021
             Console.WriteLine("Exiting.");
         }
 
-
+        static void Time(string desc, Action dayPart)
+        {
+            var sw = new Stopwatch();
+            sw.Start();
+            dayPart();
+            sw.Stop();
+            Console.WriteLine($"{desc}: {sw.ElapsedMilliseconds} ms. ({sw.Elapsed})");
+        }
 
  
     }
