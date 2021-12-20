@@ -31,7 +31,7 @@ namespace AOC2021
             XMinV = (int)Math.Max(Math.Ceiling((-1 + Math.Sqrt(1 + 8 * XTargetDim.lower)) / 2),
                 Math.Ceiling((-1 - Math.Sqrt(1 + 8 * XTargetDim.lower)) / 2));
 
-            YMinV = -1000;
+            YMinV = YTargetDim.lower; // Can assume target is forward and down
             YMaxV = 1000; // Part 1 Special Brainfree
         }
         public static void Part1()
@@ -40,7 +40,7 @@ namespace AOC2021
 
             int currentHighest=0;
             foreach (var x in Enumerable.Range(XMinV, XMaxV - XMinV + 1))
-                foreach (var y in Enumerable.Range(YMinV, YMaxV - YMinV - 1))
+                foreach (var y in Enumerable.Range(YMinV, YMaxV - YMinV + 1))
                     Boom(x, y, ref currentHighest);
             Console.WriteLine($"Day 17(1): highest is {currentHighest}");
         }
@@ -50,11 +50,9 @@ namespace AOC2021
             int x = 0, y = 0, xv=initial_xv, yv=initial_yv;
             var localHighest = y;
             bool bHasHit = isHit(x, y, xv);
-            bool bHighestReached = highestReached(localHighest, yv);
             while (!bHasHit && !yTooFar(y, yv)) // TODO: remove xtoofar?? !xTooFar(x) && as can still hit after highest achieved
             {
                 bHasHit = isHit(x, y, xv);
-                bHighestReached = highestReached(localHighest, yv);
                 x += xv; y += yv;
                 yv--;
                 if (xv > 0) xv--;
@@ -68,10 +66,8 @@ namespace AOC2021
             return bHasHit;
         }
 
-        static bool highestReached(int currentHighest, int yv) => yv <= 0;
-        
         // Is a hit if in target area now, 
-        // or is above and is dropping straight down (saves useless steps - not implemented).
+        // or is above and is dropping straight down and will hit based on progression Divide(saves useless steps - not implemented).
         static bool isHit(int x, int y, int xv = 1) => x >= XTargetDim.lower && x <= XTargetDim.upper &&
             ((y >= YTargetDim.lower && y <= YTargetDim.upper)); // || (xv == 0 && y > YTargetDim.upper && ));
       
@@ -88,7 +84,7 @@ namespace AOC2021
             foreach (var x in Enumerable.Range(XMinV, XMaxV - XMinV + 1))
                 foreach (var y in Enumerable.Range(YMinV, YMaxV - YMinV - 1))
                     if (Boom(x, y, ref currentHighest))
-                        gooduns.Add((x, y));
+                    { gooduns.Add((x, y)); /*Console.WriteLine((x,y));*/ }
             Console.WriteLine($"Day 17(2): num of candidates is {gooduns.Count}");
         }
     }

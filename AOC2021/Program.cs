@@ -10,7 +10,7 @@ namespace AOC2021
         {
             Console.WriteLine("AoC 2021!");
 
-            Day1.Part1();
+            /*Day1.Part1();
             Day1.Part2();
 
             Day2.Part1();
@@ -29,16 +29,7 @@ namespace AOC2021
             Day6.Part2();
 
             Day7.Part1();
-            Stopwatch timer = new Stopwatch();
-            /*timer.Start();
-            Day7.Part2();
-            timer.Stop();
-            Console.WriteLine($"Day 7 part 2, initial version, took {timer.Elapsed}.");*/
-            // Old part2 took 13sec!
-            timer.Restart();
-            Day7.Part2_Optimization();
-            timer.Stop();
-            Console.WriteLine($"Day 7 part 2, optimized version, took {timer.Elapsed} ({timer.ElapsedMilliseconds}ms).");
+            Time("Day 7 part 2, optimized version", Day7.Part2_Optimization);
 
             Day8.Part1();
             Day8.Part2();
@@ -67,8 +58,8 @@ namespace AOC2021
             Day16.Part1();
             Day16.Part2();
 
-            Day17.Part1();
-            Day17.Part2();
+            Time("D17 (1)", Day17.Part1);
+            Time("D17 (2)", Day17.Part2);*/
 
             Day18.Part1();
             Day18.Part2();
